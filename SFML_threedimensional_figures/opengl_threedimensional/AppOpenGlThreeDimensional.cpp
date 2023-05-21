@@ -7,7 +7,6 @@
 void CreateTriangle();
 void CreateCircle();
 void CreateSquare();
-//void createCircleColor(int numberOfIterations, int iteration);
 
 int main(int argc, char* argv[])
 {
@@ -66,40 +65,64 @@ int main(int argc, char* argv[])
 void CreateSquare()
 {
 	glBegin(GL_POLYGON);
-	glColor3f(1.0, 0.0, 0.0); glVertex3f(-0.5, -0.5, -0.5);
-	glColor3f(0.0, 1.0, 0.0); glVertex3f(-0.5, 0.5, -0.5);
-	glColor3f(0.0, 0.0, 1.0); glVertex3f(0.5, 0.5, -0.5);
-	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.5, -0.5, -0.5);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, 0.5, -0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, 0.5, -0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, -0.5, 0.5);
-	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, 0.5, 0.5);
-	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, 0.5, 0.5);
-	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, -0.5, 0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.5, -0.5, 0.5);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(0.5, 0.5, 0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(-0.5, 0.5, 0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(-0.5, -0.5, 0.5);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
-	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, 0.5, -0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, 0.5, -0.5);
 	glColor3f(0.0, 0.0, 1.0); glVertex3f(0.5, 0.5, 0.5);
 	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.5, -0.5, 0.5);
 	glEnd();
 	glBegin(GL_POLYGON);
 	glColor3f(1.0, 0.0, 0.0); glVertex3f(-0.5, -0.5, 0.5);
 	glColor3f(0.0, 1.0, 0.0); glVertex3f(-0.5, 0.5, 0.5);
-	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, 0.5, -0.5);
-	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, 0.5, -0.5);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, 0.5, 0.5);
-	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, 0.5, -0.5);
-	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, 0.5, -0.5);
-	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, 0.5, 0.5);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(0.5, 0.5, 0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, 0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, 0.5, -0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(-0.5, 0.5, 0.5);
 	glEnd();
 	glBegin(GL_POLYGON);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.5, -0.5, 0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(-0.5, -0.5, 0.5);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glEnd();
+}
+
+void CreateTriangle()
+{
+	glBegin(GL_POLYGON);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.0, 0.5, -0.5);
 	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
-	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.5, -0.5, 0.5);
-	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, 0.5);
-	glColor3f(1.0, 1.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(0.0, 0.0, 1.0); glVertex3f(-0.5, -0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.0, 0.0, 0.5);
+	glColor3f(0.0, 1.0, 0.0); glVertex3f(0.0, 0.5, -0.5);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(0.0, 0.1, 0.0); glVertex3f(0.0, 0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.0, 0.0, 0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(0.0, 0.0, 0.1); glVertex3f(-0.5, -0.5, -0.5);
+	glColor3f(1.0, 1.0, 1.0); glVertex3f(0.0, 0.0, 0.5);
+	glColor3f(1.0, 0.0, 0.0); glVertex3f(0.5, -0.5, -0.5);
 	glEnd();
 }
 
@@ -110,21 +133,7 @@ void CreateCircle()
 	int iteration = 30;
 	for (int i = 0; i <= iteration; i++) {
 		float a = (float)i / 30.0f * 3.1415f * 2.0f;
-		//createCircleColor(i, iteration);
 		glVertex2f(cos(a) * 0.5f, sin(a) * 0.5f);
 	}
 	glEnd();
 }
-
-void CreateTriangle()
-{
-	glBegin(GL_TRIANGLES);
-	glColor3f(1.0, 0.0, 0.0); glVertex2f(-0.5f, -0.5f);
-	glColor3f(0.0, 1.0, 0.0); glVertex2f(-0.5f, 0.5f);
-	glColor3f(0.0, 0.0, 1.0); glVertex2f(0.5f, 0.0f);
-	glEnd();
-}
-
-//void createCircleColor()
-//{
-//}

@@ -1,12 +1,15 @@
+#define _USE_MATH_DEFINES
+
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include <SFML/Window.hpp>
 #include <cmath>
-
+#include <math.h> 
 
 void CreateTriangle();
 void CreateCircle();
 void CreateSquare();
+void createCircleColor(int numberOfIterations, int iteration);
 
 int main(int argc, char* argv[])
 {
@@ -49,9 +52,9 @@ int main(int argc, char* argv[])
 		glRotatef(rotate_x, 1.0, 0.0, 0.0);
 		glRotatef(rotate_y, 0.0, 1.0, 0.0);
 
-		CreateSquare();
-		//CreateCircle();
+		//CreateSquare();
 		//CreateTriangle();
+		CreateCircle();
 
 		glFlush();
 
@@ -128,12 +131,65 @@ void CreateTriangle()
 
 void CreateCircle()
 {
-	glBegin(GL_TRIANGLE_FAN);
-	glVertex2f(0.0f, 0.0f);
-	int iteration = 30;
-	for (int i = 0; i <= iteration; i++) {
-		float a = (float)i / 30.0f * 3.1415f * 2.0f;
-		glVertex2f(cos(a) * 0.5f, sin(a) * 0.5f);
+	double r = 0.9; //радиус сферы
+	int nx = 40;	//число сегментов по X
+	int ny = 30;	//число сегментов по Y
+
+	double dnx = 1.0 / (double)nx;
+	double dny = 1.0 / (double)ny;
+
+	glBegin(GL_QUAD_STRIP);
+	double piy = M_PI * dny;
+	double pix = M_PI * dnx;
+	for (int iy = 0; iy < ny; iy++)
+	{
+		double diy = (double)iy;
+		double ay = diy * piy;
+		double sy = sin(ay);
+		double cy = cos(ay);
+		double ty = diy * dny;
+		double ay1 = ay + piy;
+		double sy1 = sin(ay1);
+		double cy1 = cos(ay1);
+		double ty1 = ty + dny;
+		for (int ix = 0; ix <= nx; ix++)
+		{
+			double ax = 2.0 * ix * pix;
+			double sx = sin(ax);
+			double cx = cos(ax);
+			double x = r * sy * cx;
+			double y = r * sy * sx;
+			double z = r * cy;
+			double tx = (double)ix * dnx;
+			glNormal3f(x, y, z);
+			glTexCoord2f(tx, ty);
+			glVertex3f(x, y, z);
+			x = r * sy1 * cx;
+			y = r * sy1 * sx;
+			z = r * cy1;
+			glNormal3f(x, y, z);
+			glTexCoord2f(tx, ty1);
+			glVertex3f(x, y, z);
+			createCircleColor(ix, nx);
+		}
 	}
 	glEnd();
+}
+
+void createCircleColor(int numberOfIterations, int iteration)
+{
+	int i = round(numberOfIterations * 100 / iteration);
+
+	if (i <= 33)
+	{
+		glColor3f(1.0, 0.0, 0.0);
+	}
+	else if (i > 33 && i <= 66)
+	{
+		glColor3f(0.0, 1.0, 0.0);
+	}
+	else
+	{
+		glColor3f(0.0, 0.0, 1.0);
+	}
 }

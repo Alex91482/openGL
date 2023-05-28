@@ -6,4 +6,5 @@
 ## Tetrahedron
 ![plot](../images/tetrahedron_SFML.png)
 	
- 
+## Sphere
+![plot](../images/sphere_SFLM.png)
